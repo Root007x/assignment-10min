@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ## ALL API load
-HF_TOKEN = os.getenv("HF_TOKEN")
 HUGGINGFACEHUB_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
 HUGGINGFACE_REPO_ID = "Qwen/Qwen3-235B-A22B-Instruct-2507"

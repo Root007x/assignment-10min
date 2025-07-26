@@ -93,7 +93,6 @@ This is a quick way to manually test and explore your API without writing any co
 
 ### 5. Customization
 
-- Add your data to the `data/` folder.
 - Update system prompt in `src/config/config.py`.
 
 ### 6. Frontend (optional)

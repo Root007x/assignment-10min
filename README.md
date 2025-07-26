@@ -145,7 +145,7 @@ After preprocessing the PDF data, you can check the processed data in the `data`
 
 Below is an example of how the input and output look in the FastAPI docs:
 
-![API Example](img/example_api.png)
+![API Example](img/example_api.PNG)
 
 **Sample Input (request):**
 

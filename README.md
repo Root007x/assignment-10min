@@ -16,7 +16,32 @@ Replace `your_huggingface_token_here` with your actual token from https://huggin
 
 ---
 
-### 1. Install dependencies
+### 1. Install system dependencies (Windows)
+
+Before running `pip install -r requirements.txt`, you must install Poppler and Tesseract OCR on your system for PDF and image processing to work.
+
+#### Install Poppler
+
+1. Download Poppler for Windows from:
+   https://github.com/oschwartz10612/poppler-windows/releases
+2. Add `C:\poppler\Library\bin` to your system PATH:
+   - Open Start Menu, search Environment Variables → Edit the system environment variables
+   - Click Environment Variables
+   - Under System Variables, find and select Path → Click Edit
+   - Click New and add: `C:\poppler\Library\bin`
+   - Click OK to save and exit
+3. Restart your terminal/IDE to load the updated PATH
+
+#### Install Tesseract OCR
+
+1. Download and install from:
+   https://github.com/UB-Mannheim/tesseract/wiki
+2. After installation, make sure `C:\Program Files\Tesseract-OCR\tesseract.exe` is in your system PATH
+3. If needed, tell `pytesseract` where to find tesseract in your code
+
+---
+
+### 2. Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -41,6 +66,8 @@ The API will be available at `http://127.0.0.1:8000/`
 ### 4. Chat with the bot
 
 Send a POST request to `/chat` with a JSON body:
+
+## Q&A: Key Technical Decisions and Challenges
 
 ```
 {
@@ -108,7 +135,75 @@ Other internal modules:
 
 ---
 
-## Project Q&A: Technical Choices Explained
+---
+
+---
+
+## Example: Input and Output
+
+After preprocessing the PDF data, you can check the processed data in the `data` folder, file name `book_data.json`.
+
+Below is an example of how the input and output look in the FastAPI docs:
+
+![API Example](img/example_api.png)
+
+**Sample Input (request):**
+
+```json
+{
+  "message": "অনুপমের বাবা কী করে জীবিকা নির্বাহ করতেন?"
+}
+```
+
+**Sample Output (response):**
+
+```json
+{
+  "reply": "অনুপমের বাবা ওকালতি করে জীবিকা নির্বাহ করতেন."
+}
+```
+
+You can see the full processed data in `data/book_data.json`.
+
+```
+assignment-10min/
+├── app.py
+├── generate_vector_store.py
+├── requirements.txt
+├── setup.py
+├── README.md
+├── LICENSE
+├── .env
+├── template.py
+├── data/
+│   ├── book_data.json
+│   └── HSC26-Bangla1st-Paper.pdf
+├── logs/
+│   └── log_2025-07-26.log
+├── vectore_store/
+│   ├── index.faiss
+│   └── index.pkl
+├── research/
+│   └── research.ipynb
+├── src/
+│   ├── __init__.py
+│   ├── components/
+│   │   ├── __init__.py
+│   │   ├── data_prepocessing.py
+│   │   ├── llm_model.py
+│   │   └── vector_database.py
+│   ├── config/
+│   │   ├── __init__.py
+│   │   └── config.py
+│   └── utils/
+│       ├── __init__.py
+│       ├── custom_exception.py
+│       ├── helper.py
+│       └── logger.py
+└── 10Min_Rag_Application.egg-info/
+```
+
+## Q&A: Key Technical Decisions and Challenges
 
 **1. What method or library did you use to extract the text, and why? Did you face any formatting challenges with the PDF content?**
 

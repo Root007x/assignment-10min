@@ -1,0 +1,13 @@
+langchain
+langchain_community
+langchain_huggingface
+huggingface_hub
+faiss-cpu
+pdfplumber
+sentence-transformers
+pdf2image
+pytesseract
+fastapi
+pydantic
+uvicorn
+python-dotenv

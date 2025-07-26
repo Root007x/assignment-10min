@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: 10Min_Rag_Application
+Version: 1.0
+Author: Md. Mahadi Hasan
+License-File: LICENSE
+Requires-Dist: langchain
+Requires-Dist: langchain_community
+Requires-Dist: langchain_huggingface
+Requires-Dist: huggingface_hub
+Requires-Dist: faiss-cpu
+Requires-Dist: python-dotenv
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-dist
